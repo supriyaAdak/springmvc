@@ -1,0 +1,7 @@
+package com.bridgeit.springmvc.service;
+
+import com.bridgeit.springmvc.dto.Userdto;
+
+public interface IuserService {
+	void register(User user);
+}

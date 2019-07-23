@@ -1,0 +1,3 @@
+#Tomcat publish data
+#Mon Jul 22 17:16:55 IST 2019
+org.eclipse.jst.jee.server\:Login=/home/admin106/Documents/springsuittool/sts-bundle/pivotal-tc-server/instances/base-instance/wtpwebapps/Login

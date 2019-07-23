@@ -1,0 +1,5 @@
+package com.bridgeit.springmvc.dao;
+
+public class UserDaoImpl {
+
+}

@@ -1,0 +1,5 @@
+package com.bridgeit.springmvc.service;
+
+public class UserServiceimpl {
+
+}

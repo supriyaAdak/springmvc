@@ -1,0 +1,32 @@
+package com.bridgeit.springmvc.service;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.bridgeit.springmvc.dto.Userdto;
+
+public class UserServiceimpl implements IuserService {
+	@Autowired
+	DataSource datasource;
+	
+	
+	 private JdbcTemplate jdbcTemplate;
+
+    public UserServiceimpl(DataSource dataSource) {
+        jdbcTemplate = new JdbcTemplate(dataSource);
+    }
+	@Override
+	public void register(Userdto user) 
+	{
+		
+		System.out.println("in dao");
+		System.out.println(user);
+		String sql = "insert into users values(?,?,?,?,?,?,?)";
+		jdbcTemplate.update(sql, new Object[] { user.getUsername(), user.getPassword(), user.getFirstname(),
+				user.getLastname(), user.getEmail(), user.getAddress(), user.getPhone() });
+		
+	}
+
+}

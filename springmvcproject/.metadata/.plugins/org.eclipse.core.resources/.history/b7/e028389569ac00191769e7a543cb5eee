@@ -1,0 +1,37 @@
+package com.bridgeit.springmvc.dao;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.bridgeit.springmvc.model.Login;
+import com.bridgeit.springmvc.model.User;
+
+
+public class UserDaoImpl implements UserDao {
+	@Autowired
+	DataSource datasource;
+	
+	
+	 private JdbcTemplate jdbcTemplate;
+
+    public UserDaoImpl(DataSource dataSource) {
+        jdbcTemplate = new JdbcTemplate(dataSource);
+    }
+
+	@Override
+	public void register(User user) {
+		System.out.println(user);
+		String sql = "insert into users values(?,?,?,?,?,?,?)";
+		jdbcTemplate.update(sql, new Object[] { user.getUsername(), user.getPassword(), user.getFirstname(),
+				user.getLastname(), user.getEmail(), user.getAddress(), user.getPhone() });
+	}
+
+	@Override
+	public User validateUser(Login login) {
+	
+		return null;
+	}		
+	
+}
